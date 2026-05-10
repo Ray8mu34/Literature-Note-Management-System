@@ -1,0 +1,66 @@
+env_file: .env
+
+paths:
+  # Zotero uses an absolute path. Edit this when moving to another machine.
+  zotero_storage: "C:/Users/30674/Zotero/storage"
+  zotero_db: "C:/Users/30674/Zotero/zotero.sqlite"
+
+  # Better BibTeX local JSON-RPC endpoint. Zotero must be running.
+  better_bibtex_json_rpc: "http://localhost:23119/better-bibtex/json-rpc"
+
+  # Vault paths are relative to this repository.
+  vault_root: ".."
+  fulltext_dir: "60_AI_Context/fulltext_md"
+  nodes_dir: "60_AI_Context/rag_nodes"
+
+  # Runtime database/cache/log paths are outside the Obsidian vault by default.
+  runtime_dir: "../rag_runtime"
+  qdrant_storage: "qdrant_storage"
+  cache_dir: "cache"
+  logs_dir: "logs"
+  snapshots_dir: "snapshots"
+
+conversion:
+  mineru_env: "mineru_env"
+  max_depth: 3
+  timeout_seconds: 1200
+
+nodes:
+  parser: "markdown_headers"
+  min_chars: 120
+  max_chars: 1800
+  overlap_chars: 180
+
+embedding:
+  provider: "sentence_transformers"
+  dense_model: "BAAI/bge-m3"
+  batch_size: 16
+
+qdrant:
+  collection: "cv_papers"
+  dense_vector_name: "dense"
+  sparse_vector_name: "sparse"
+  distance: "Cosine"
+  prefer_grpc: false
+  recreate_collection: false
+
+retrieval:
+  dense_top_k: 30
+  sparse_top_k: 30
+  final_top_k: 8
+  dense_weight: 0.65
+  sparse_weight: 0.35
+  snippet_chars: 700
+
+reranker:
+  enabled: false
+  model: "BAAI/bge-reranker-base"
+  top_k: 8
+
+llm:
+  # Disabled by default. Normal workflow: external AI/agent reads query.py evidence
+  # and writes the answer. query.py will not call an LLM unless --answer is passed.
+  enabled: false
+  provider: "openai"
+  model: "gpt-4.1-mini"
+  base_url:

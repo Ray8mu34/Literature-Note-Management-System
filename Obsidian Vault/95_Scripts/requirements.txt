@@ -1,0 +1,11 @@
+PyYAML>=6.0.1
+qdrant-client>=1.9.0
+sentence-transformers>=2.7.0
+numpy>=1.24.0
+python-dotenv>=1.0.0
+openai>=1.30.0
+
+# Optional parser/rag framework. The current scripts use a local Markdown parser
+# by default to avoid version coupling, but LlamaIndex can be used later for
+# richer node abstractions.
+llama-index-core>=0.10.0
