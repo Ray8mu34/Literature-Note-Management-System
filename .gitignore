@@ -1,2 +1,59 @@
 # Ignore Obsidian configuration
 .obsidian/
+
+# Ignore common temporary files
+*.tmp
+*.log
+*.swp
+*.swo
+*~
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Ignore environment files
+.env
+.env.local
+.env.*.local
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore node modules (if any)
+node_modules/
+
+# Ignore RAG runtime data (large files)
+rag_runtime/chroma_db/
+rag_runtime/models/
+rag_runtime/cache/
